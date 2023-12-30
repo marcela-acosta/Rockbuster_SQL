@@ -1,0 +1,11 @@
+# Film Length Statistics
+# This query gathers the shortest, longest, and average length of films in minutes, with values rounded to whole numbers.
+# It also counts the number of films with specified lengths and the total number of films in the database.
+# Useful for understanding film duration distribution and for inventory planning.
+
+SELECT round(MIN(length),0) AS min_length,
+       round(MAX(length),0) AS max_length,
+       round(AVG(length),0) AS avg_length,
+       COUNT(length) AS count_length,
+       COUNT(*) AS count_rows
+FROM film
