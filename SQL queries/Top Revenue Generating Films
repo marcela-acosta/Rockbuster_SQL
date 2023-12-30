@@ -1,6 +1,6 @@
-# SQL Query: Top Revenue Generating Movies
-# Determines which movies have generated the most revenue.
-# The query joins 'payment', 'rental', 'inventory', and 'film' tables to calculate the total amount paid per movie.
+# SQL Query: Top Revenue Generating Films
+# Determines which films have generated the most revenue.
+# The query joins 'payment', 'rental', 'inventory', and 'film' tables to calculate the total amount paid per film.
 
 SELECT film.title, SUM(payment.amount) AS "total amount paid"
 FROM payment
