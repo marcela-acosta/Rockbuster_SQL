@@ -1,7 +1,6 @@
 # SQL Query: Release Year Statistics
 # This query calculates various aggregate statistics related to the 'release_year' of films in our database.
 # It will provide the minimum and maximum release years, the average release year (rounded to the nearest whole number), the count of non-null 'release_year' entries, and the total count of rows in the 'film' table.
-# These statistics will help us understand the range and distribution of film release years that we have in our inventory.
 
 SELECT MIN(release_year) AS min_release_year,
    MAX(release_year) AS max_release_year,
