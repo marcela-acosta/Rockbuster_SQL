@@ -1,0 +1,13 @@
+# SQL Query: Top 10 Countries by Customer Count
+# This query ranks the top 10 countries by the number of customers.
+# It joins the 'customer', 'address', 'city', and 'country' tables to associate customers with countries.
+
+SELECT D.country,
+       COUNT(customer_id) AS customers
+FROM customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_ID = D.country_ID
+GROUP BY country
+ORDER BY customers DESC
+LIMIT 10
