@@ -1,0 +1,11 @@
+# SQL Query: Rental Duration Analysis
+# The following query is designed to extract aggregate information about the rental duration of films.
+# It computes the shortest and longest rental periods, the average rental duration (rounded to a whole number), and the total number of entries with a non-null 'rental_duration' value.
+# Additionally, it counts the total number of rows in the 'film' table to provide context to the aggregate figures.
+
+SELECT MIN(rental_duration) AS min_rental_duration,
+   MAX(rental_duration) AS max_rental_duration,
+   round(AVG(rental_duration),0) AS avg_rental_duration,
+   COUNT(rental_duration) AS count_rental_duration,
+   COUNT(*) AS count_rows
+FROM film
