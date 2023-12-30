@@ -1,0 +1,37 @@
+# SQL Query: Revenue by Country
+# This query provides a report of revenue by country, the total number of customers per country, and the percentage of total revenue that each country represents.
+# It uses a common table expression (CTE) to first calculate the total revenue and customer count per country.
+# Then, it calculates the total revenue from all payments. 
+# Finally, it joins these two results to calculate the revenue percentage for each country and orders the results by the number of customers descending.
+
+WITH country_sales AS (
+    SELECT
+        co.country,
+        COUNT(DISTINCT cu.customer_id) AS total_customers,
+        SUM(pa.amount) AS revenue
+    FROM
+        payment pa
+        INNER JOIN customer cu ON pa.customer_id = cu.customer_id
+        INNER JOIN address ad ON cu.address_id = ad.address_id
+        INNER JOIN city ci ON ad.city_id = ci.city_id
+        INNER JOIN country co ON ci.country_id = co.country_id
+    GROUP BY
+        co.country
+),
+total_revenue AS (
+    SELECT
+        SUM(amount) AS total_revenue
+    FROM
+        payment
+)
+SELECT
+    cs.country,
+    cs.total_customers,
+    cs.revenue,
+    tr.total_revenue,
+    (cs.revenue / tr.total_revenue) * 100 AS revenue_percentage
+FROM
+    country_sales cs
+    CROSS JOIN total_revenue tr
+ORDER BY
+    cs.total_customers DESC
