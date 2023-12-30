@@ -1,5 +1,5 @@
-# SQL Query: Lowest Revenue Generating Movies
-# This query identifies the movies that have contributed the least to revenue.
+# SQL Query: Lowest Revenue Generating Films
+# This query identifies the films that have contributed the least to revenue.
 # It calculates the total amount paid for each movie by joining the 'payment', 'rental', 'inventory', and 'film' tables.
 
 SELECT film.title, SUM(payment.amount) AS "total amount paid"
