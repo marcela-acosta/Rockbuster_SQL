@@ -1,0 +1,29 @@
+# SQL Query: Top 10 Cities by Customer Count
+# This query identifies the top 10 cities with the highest number of customers.
+
+SELECT 
+D.country,
+C.city,
+COUNT(A.customer_id) AS customer_count
+FROM 
+customer A
+INNER JOIN address B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_ID = D.country_ID
+WHERE
+D.country IN (
+    SELECT country
+    FROM country
+    JOIN city ON country.country_id = city.country_id
+    JOIN address ON city.city_id = address.city_id
+    JOIN customer ON address.address_id = customer.address_id
+    GROUP BY country
+    ORDER BY COUNT(customer.customer_id) DESC
+    LIMIT 10
+)
+GROUP BY 
+D.country,
+C.city
+ORDER BY 
+customer_count DESC
+LIMIT 10
