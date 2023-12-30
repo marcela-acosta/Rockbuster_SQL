@@ -27,7 +27,7 @@
 - Store: Information about store locations.
 
 ## Visualizations
-To aid in the analysis and presentation of our findings, we created several visualizations using Tableau. These visualizations provide insights into customer behavior, rental trends, and other key aspects of the business. The storyboard of these visualizations can be accessed here: Rockbuster Visuals.
+To aid in the analysis and presentation of our findings, we created several visualizations using Tableau. These visualizations provide insights into customer behavior, rental trends, and other key aspects of the business. The storyboard of these visualizations can be accessed here: [Rockbuster Visuals](https://public.tableau.com/app/profile/marcela.acosta/favorites)
 
 ## Usage
 - This repository contains SQL scripts used for analyzing the Rockbuster dataset.
