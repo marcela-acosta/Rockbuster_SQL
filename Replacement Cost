@@ -1,0 +1,10 @@
+# Film Replacement Cost Analysis
+# This SQL query calculates the minimum, maximum, and average replacement cost of films, rounded to the nearest dollar.
+# It also provides the count of films with a specified replacement cost and the total film count.
+
+SELECT round(MIN(replacement_cost),0) AS min_replacement_cost,
+       round(MAX(replacement_cost),0) AS max_replacement_cost,
+       round(AVG(replacement_cost),0) AS avg_replacement_cost,
+       COUNT(replacement_cost) AS count_replacement_cost,
+       COUNT(*) AS count_rows
+FROM film
