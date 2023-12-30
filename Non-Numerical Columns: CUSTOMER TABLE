@@ -1,0 +1,11 @@
+# Customer Table Mode Values Query
+# This SQL query computes the mode for selected non-numeric columns in the 'customer' table.
+
+SELECT MODE() WITHIN GROUP (ORDER BY first_name) AS mode_first_name,
+       MODE() WITHIN GROUP (ORDER BY last_name) AS mode_last_name,
+       MODE() WITHIN GROUP (ORDER BY email) AS mode_email,
+       MODE() WITHIN GROUP (ORDER BY activebool) AS mode_activebool,
+       MODE() WITHIN GROUP (ORDER BY create_date) AS mode_create_date,
+       MODE() WITHIN GROUP (ORDER BY last_update) AS mode_last_update,
+       MODE() WITHIN GROUP (ORDER BY active) AS mode_active
+FROM customer
