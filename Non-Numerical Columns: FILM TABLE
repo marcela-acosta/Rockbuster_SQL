@@ -1,0 +1,12 @@
+# Film Table Mode Values Query
+# This SQL query determines the mode (most frequently occurring value) for various non-numeric columns in the 'film' table.
+
+SELECT MODE() WITHIN GROUP (ORDER BY title) AS mode_title,
+       MODE() WITHIN GROUP (ORDER BY description) AS mode_description,
+       MODE() WITHIN GROUP (ORDER BY release_year) AS mode_release_year,
+       MODE() WITHIN GROUP (ORDER BY language_id) AS mode_language,
+       MODE() WITHIN GROUP (ORDER BY rating) AS mode_rating,
+       MODE() WITHIN GROUP (ORDER BY last_update) AS mode_last_update,
+       MODE() WITHIN GROUP (ORDER BY special_features) AS mode_special_features,
+       MODE() WITHIN GROUP (ORDER BY fulltext) AS mode_fulltext
+FROM film
